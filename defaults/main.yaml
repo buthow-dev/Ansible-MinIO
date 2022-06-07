@@ -4,5 +4,5 @@ minio_root_user: "minioadmin"
 minio_root_password: "minioadmin"
 
 drives: {
-  "/dev/sda": "/mnt/disk1"
+  "/dev/sdb": "/mnt/disk1"
 }
