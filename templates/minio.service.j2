@@ -6,8 +6,8 @@ After=network-online.target
 AssertFileIsExecutable=/usr/local/bin/minio
 
 [Service]
-User=minio
-Group=minio
+User="{{ minio_system_user }}"
+Group="{{ minio_system_user }}"
 ProtectProc=invisible
 
 EnvironmentFile=/etc/default/minio
