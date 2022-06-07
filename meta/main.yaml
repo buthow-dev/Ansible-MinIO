@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  role_name: minio
+  author: Richard Kostyn
+  description: Role for installing MinIO
+  company: "ButHow.Dev"
+  min_ansible_version: 2.14
+  collections:
+  - ansible.posix
+  - community.general
+
+  galaxy_tags:
+    - web
+    - minio
+
+dependencies: []
