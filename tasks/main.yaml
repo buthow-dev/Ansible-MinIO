@@ -19,6 +19,11 @@
     state: present
   with_dict: "{{ drives }}"
 
+- name: Create Group.
+  group:
+    name: "{{ minio_system_user }}"
+    system: yes
+
 - name: Create user.
   user:
     name: "{{ minio_system_user }}"
