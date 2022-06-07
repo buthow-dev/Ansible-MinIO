@@ -1,0 +1,28 @@
+---
+- name: Download the MinIO binary.
+  get_url:
+    url: https://dl.min.io/server/minio/release/linux-amd64/minio
+    dest: /usr/local/bin/minio
+    mode: '0750'
+
+- name: Format and mount drives
+  block:
+    - name: Format drive.
+      community.general.filesystem: 
+        dev: "{{ item.key }}"
+        fstype: ext4
+
+    - name: Mount drive.
+      ansible.posix.mount:
+        src: "{{ item.key }}"
+        path: "{{ item.value }}"
+        fstype: ext4
+        state: present
+
+  with_dict: "{{ drives }}"
+
+#- name: Template ENV file.
+
+#- name: Template service file.
+
+#- name: Start MinIO.

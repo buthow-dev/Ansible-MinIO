@@ -1,0 +1,8 @@
+---
+minio_system_user: "minio"
+minio_root_user: "minioadmin"
+minio_root_password: "minioadmin"
+
+drives: {
+  "/dev/sda": "/mnt/disk1"
+}
