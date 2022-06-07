@@ -25,26 +25,16 @@
     dest: /usr/local/bin/minio
     mode: '0750'
 
-- name: Set permissions on MinIO binary.
-  file:
-    path: /usr/local/bin/minio
-    owner: "{{ minio_system_user }}"
-    group: "{{ minio_system_user }}"
-
 - name: Template ENV file.
   template:
     src: minio.env.j2
     dest: /etc/default/minio.env
-    owner: "{{ minio_system_user }}"
-    group: "{{ minio_system_user }}"
     mode: "0600"
 
 - name: Template service file.
   template:
     src: minio.service.j2
     dest: /lib/systemd/system/minio.service
-    owner: "{{ minio_system_user }}"
-    group: "{{ minio_system_user }}"
     mode: "0600"
 
 - name: Start MinIO.
