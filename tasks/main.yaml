@@ -11,6 +11,12 @@
     fstype: ext4
   with_dict: "{{ drives }}"
 
+- name: Create path if doesn't exist.
+  file:
+    path: "{{ key.value }}"
+    state: directory
+  with_dict: "{{ drives }}"
+
 - name: Mount drive.
   ansible.posix.mount:
     src: "{{ item.key }}"
