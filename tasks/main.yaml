@@ -5,20 +5,18 @@
     dest: /usr/local/bin/minio
     mode: '0750'
 
-- name: Format and mount drives
-  block:
-    - name: Format drive.
-      community.general.filesystem: 
-        dev: "{{ item.key }}"
-        fstype: ext4
+- name: Format drive.
+  community.general.filesystem: 
+    dev: "{{ item.key }}"
+    fstype: ext4
+  with_dict: "{{ drives }}"
 
-    - name: Mount drive.
-      ansible.posix.mount:
-        src: "{{ item.key }}"
-        path: "{{ item.value }}"
-        fstype: ext4
-        state: present
-
+- name: Mount drive.
+  ansible.posix.mount:
+    src: "{{ item.key }}"
+    path: "{{ item.value }}"
+    fstype: ext4
+    state: present
   with_dict: "{{ drives }}"
 
 #- name: Template ENV file.
