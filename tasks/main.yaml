@@ -43,15 +43,10 @@
     owner: "{{ minio_system_user }}"
     group: "{{ minio_system_user }}"
 
-- name: Create default directory
-  file:
-    path: /usr/default
-    state: directory
-
 - name: Template ENV file.
   template:
     src: minio.env.j2
-    dest: /usr/default/minio.env
+    dest: /etc/default/minio.env
     owner: "{{ minio_system_user }}"
     group: "{{ minio_system_user }}"
     mode: "0600"
