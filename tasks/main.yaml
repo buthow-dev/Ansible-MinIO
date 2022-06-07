@@ -13,7 +13,7 @@
 
 - name: Create path if doesn't exist.
   file:
-    path: "{{ key.value }}"
+    path: "{{ item.value }}"
     state: directory
   with_dict: "{{ drives }}"
 
