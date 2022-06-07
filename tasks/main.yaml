@@ -46,7 +46,7 @@
 - name: Create default directory
   file:
     path: /usr/default
-    state: present
+    state: directory
 
 - name: Template ENV file.
   template:
